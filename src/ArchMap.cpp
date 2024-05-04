@@ -129,6 +129,8 @@ static const std::map<std::string, ArchMapper> arch_map = {
 		CUSTOM_BITS((RzCore *core) {
 			return 32;
 		})}},
+
+	{ "tricore", { "tricore" } },
 };
 
 static const std::map<std::string, std::string> compiler_map = {
@@ -185,7 +187,7 @@ RZ_API std::string SleighIdFromSleighAsmConfig(const char *cpu, int bits, bool b
 		auto proc = lang.getProcessor();
 		if(StrToLower(proc) == low_cpu)
 		{
-			return proc 
+			return proc
 				+ ":" + (bigendian ? "BE" : "LE")
 				+ ":" + to_string(bits)
 				+ ":" + "default";
